@@ -1,3 +1,11 @@
+import List from "./components/List/List";
+import { ListProvider } from "./context/ListProvider";
+
 export default function App() {
-  return <h1>Hello World</h1>;
-}
+  return (
+    <ListProvider>
+      <List />
+    </ListProvider>
+
+  )
+  }
