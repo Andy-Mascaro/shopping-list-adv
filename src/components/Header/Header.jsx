@@ -1,9 +1,7 @@
-import { useLists } from "../../context/ListProvider";
-
+import { useLists } from '../../context/ListProvider';
 
 export default function Header() {
-    const { list } = useLists();
+  const { list } = useLists();
 
-    return <div>Items add to list: {list.length}</div>;
-
+  return <div>Items In List: {list.length}</div>;
 }
