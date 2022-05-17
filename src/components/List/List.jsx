@@ -21,7 +21,7 @@ const redo = () => {
   return (
     <>
       <div className="list">
-          <input
+          <input placeholder='Add new item'
             type="text"
             value={item}
             onChange={(e) => setItem(e.target.value)}
@@ -39,16 +39,17 @@ const redo = () => {
 
           {edit && (
             <>
-            <input type='text' value={edit.id} onSubmit={(e) => setEdit(e.target.value)}/>
-            <button onClick={() => handleEdit(data.id)}>
+            <input type='text' value={edit.id} onChange={(e) => setEdit(e.target.value)}/>
+            <button onClick={() => handleEdit(data.id)} >
             Save
           </button>
+          
           </> 
           )}
        
-          <button onClick={redo}>{edit ? 'Close' : 'EDIT'}</button>
-          <button onClick={() => handleDelete(data.id)}>
-            Delete
+          <button onClick={redo} >{edit ? 'Finished' : 'Edit'}</button>
+          
+          <button onClick={() => handleDelete(data.id)}>Delete
           </button>
         </div>
       ))}
