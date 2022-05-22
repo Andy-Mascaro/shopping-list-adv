@@ -11,46 +11,44 @@ export default function Lists() {
     handleClear,
     handleDelete,
     edit,
-    setEdit
+    setEdit,
   } = useLists();
-  
-const redo = () => {
-  setEdit(!edit);
-};
+
+  const redo = () => {
+     setEdit(!edit);
+  };
 
   return (
     <>
       <div className="list">
-          <input placeholder='Add new item'
-            type="text"
-            value={item}
-            onChange={(e) => setItem(e.target.value)}
-          />
-       
+        <input
+          placeholder="Add new item"
+          type="text"
+          value={item}
+          onChange={(e) => setItem(e.target.value)}
+        />
         <button onClick={handleClear}>Clear All</button>
-          <button type="text" onClick={handleAddList}>
-            Add
-          </button>
+
+        <button type="text" onClick={handleAddList}>Add</button>
       </div>
-      
+
       {list.map((data) => (
         <div key={data.id}>
           <p>{data.text}</p>
 
           {edit && (
             <>
-            <input type='text' value={edit.id} onChange={(e) => setEdit(e.target.value)}/>
-            <button onClick={() => handleEdit(data.id)} >
-            Save
-          </button>
-          
-          </> 
+              <input
+              placeholder='Edit item'
+                type="text"
+                value={edit.id}
+                onChange={(e) => setEdit(e.target.value)}
+              />
+                <button type="text"onClick={() => handleEdit(data.id)}>Save</button>
+                  <button onClick={() => handleDelete(data.id)}>Delete</button>
+            </>
           )}
-       
-          <button onClick={redo} >{edit ? 'Finished' : 'Edit'}</button>
-          
-          <button onClick={() => handleDelete(data.id)}>Delete
-          </button>
+           <button onClick={redo}>{edit ? 'Close Edit' : 'Edit'}</button> 
         </div>
       ))}
     </>

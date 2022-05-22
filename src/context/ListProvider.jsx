@@ -33,7 +33,7 @@ export const ListProvider = ({ children }) => {
     setItem('');
   };
   const handleEdit = (id) => {
-    dispatch({ type: 'EDIT_ITEM', payload: { item: edit, id } });
+    dispatch({ type: 'EDIT_ITEM', payload: { text: edit, id } });
     setEdit('');
   };
   const handleClear = () => {
